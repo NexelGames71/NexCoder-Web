@@ -10,6 +10,7 @@ export const RELEASE_DATE_LABEL = "July 27, 2026";
 
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Docs", href: "/docs" },
   { label: "CLI", href: "/cli" },
   { label: "Download", href: "/download" },
@@ -20,6 +21,7 @@ export const FOOTER_GROUPS = [
     title: "Product",
     links: [
       { label: "Features", href: "/features" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Documentation", href: "/docs" },
       { label: "CLI agent", href: "/cli" },
       { label: "Download", href: "/download" },
@@ -40,6 +42,130 @@ export const FOOTER_GROUPS = [
       { label: "Model endpoint", href: "/download#model-api" },
     ],
   },
+];
+
+export const PRICING_PLANS = [
+  {
+    id: "free",
+    name: "Free",
+    eyebrow: "Start local",
+    price: "$0",
+    period: "forever",
+    description:
+      "For trying NexCoder, working with local models, or bringing your own OpenAI-compatible endpoint.",
+    credits: "$3 hosted AI credits / month",
+    cta: "Download free",
+    href: "/download",
+    featured: false,
+    benefits: [
+      "Desktop IDE and terminal CLI",
+      "Local GGUF and BYO endpoint support",
+      "Ask, Scan, Review, Agent, Edit, Debug, and Plan modes",
+      "Checkpoint-backed file revert",
+      "Limited NexCoder-hosted model usage",
+    ],
+    limits: ["32k hosted context", "12 max hosted agent turns", "3 trial Agent Mesh runs / month"],
+  },
+  {
+    id: "plus",
+    name: "Plus",
+    eyebrow: "Solo builder",
+    price: "$20",
+    annualPrice: "$16",
+    period: "per month",
+    description:
+      "For solo developers who want NexCoder-hosted models without thinking about infrastructure.",
+    credits: "$20 hosted AI credits / month",
+    cta: "Choose Plus",
+    href: "/signup?plan=plus",
+    featured: true,
+    benefits: [
+      "Everything in Free",
+      "All normal hosted Agent, Edit, Debug, and Plan workflows",
+      "Image input for supported vision models",
+      "Persistent project memory",
+      "Usage meter and credit warnings",
+    ],
+    limits: ["64k hosted context", "50 max hosted agent turns", "Agent Mesh is credit-metered"],
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    eyebrow: "Daily agent work",
+    price: "$39",
+    annualPrice: "$32",
+    period: "per month",
+    description:
+      "For developers using NexCoder as a daily agentic coding workspace across larger projects.",
+    credits: "$70 hosted AI credits / month",
+    cta: "Choose Pro",
+    href: "/signup?plan=pro",
+    featured: false,
+    benefits: [
+      "Everything in Plus",
+      "Higher hosted model allowance",
+      "Deep Thinker for complex work",
+      "Priority hosted queue",
+      "Longer checkpoint and session retention",
+    ],
+    limits: ["128k hosted context", "70 max hosted agent turns", "Higher Agent Mesh allowance"],
+  },
+  {
+    id: "premium",
+    name: "Premium",
+    eyebrow: "Power user",
+    price: "$99",
+    annualPrice: "$80",
+    period: "per month",
+    description:
+      "For heavy Agent Mesh, long-context coding sessions, and early access to stronger hosted models.",
+    credits: "$200 hosted AI credits / month",
+    cta: "Choose Premium",
+    href: "/signup?plan=premium",
+    featured: false,
+    benefits: [
+      "Everything in Pro",
+      "Power-user hosted capacity",
+      "Early access to new models and agent features",
+      "Higher concurrent cloud tasks",
+      "Priority support",
+    ],
+    limits: ["200k hosted context where supported", "100 max hosted agent turns", "Long-running Agent Mesh"],
+  },
+];
+
+export const TEAM_PRICING_PLANS = [
+  {
+    name: "Team",
+    price: "$40",
+    annualPrice: "$32",
+    period: "per user / month",
+    description:
+      "Centralized billing, pooled credits, shared rules and skills, team privacy controls, and usage analytics.",
+    credits: "$70 pooled credits / user / month",
+    href: "/signup?plan=team",
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    period: "contract",
+    description:
+      "SAML/OIDC, SCIM, audit logs, repository and model controls, custom retention, invoice billing, and private deployment options.",
+    credits: "Contracted pooled usage",
+    href: "/signup?plan=enterprise",
+  },
+];
+
+export const PRICING_FEATURE_ROWS = [
+  ["Desktop IDE and CLI", "Included", "Included", "Included", "Included", "Included"],
+  ["Local and BYO models", "Included", "Included", "Included", "Included", "Included"],
+  ["Hosted AI credits", "$3", "$20", "$70", "$200", "Pooled"],
+  ["Hosted context window", "32k", "64k", "128k", "200k*", "Custom"],
+  ["Max hosted agent turns", "12", "50", "70", "100", "Custom"],
+  ["Agent Mesh", "3 trial runs", "Credit-metered", "Higher allowance", "Long-running", "Admin controlled"],
+  ["Vision models", "Limited", "Included", "Included", "Included", "Included"],
+  ["Team administration", "-", "-", "-", "-", "Included"],
+  ["SSO, SCIM, audit logs", "-", "-", "-", "-", "Enterprise"],
 ];
 
 export const HOME_FEATURES = [

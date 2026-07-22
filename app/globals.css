@@ -53,6 +53,19 @@ body {
   animation-delay: 0.4s;
 }
 
+.pricing-rise {
+  animation: pricing-rise 0.72s ease-out both;
+}
+
+.pricing-delay-2 {
+  animation-delay: 0.16s;
+}
+
+.pricing-meter {
+  background: linear-gradient(90deg, transparent, rgba(77, 124, 255, 0.75), rgba(34, 201, 255, 0.9), transparent);
+  animation: pricing-meter 4.2s ease-in-out infinite;
+}
+
 @keyframes docs-fade-up {
   from {
     opacity: 0;
@@ -88,10 +101,37 @@ body {
   }
 }
 
+@keyframes pricing-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pricing-meter {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateX(-28%);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translateX(28%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .docs-hero-grid,
   .docs-scanline,
-  .docs-fade-up {
+  .docs-fade-up,
+  .pricing-rise,
+  .pricing-meter {
     animation: none;
   }
 }
