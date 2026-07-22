@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 
 import AppFrame from "../../components/marketing/AppFrame";
 import CodeBlock from "../../components/marketing/CodeBlock";
+import ReleaseCountdown from "../../components/marketing/ReleaseCountdown";
 import Section from "../../components/marketing/Section";
-import { HOME_FEATURES, MODES } from "../../lib/site-content";
+import { HOME_FEATURES, MODES, RELEASE_DATE_LABEL } from "../../lib/site-content";
 
 export const metadata: Metadata = {
   title: "NexCoder - Agentic Coding IDE for the Nexa Ecosystem",
@@ -77,6 +78,36 @@ export default function HomePage() {
                 className="block w-full"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-shell px-5 py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-violet">Launch</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-4xl">
+            NexCoder launches {RELEASE_DATE_LABEL}.
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-muted md:text-base">
+            The desktop app and terminal CLI go public on launch day - downloads for Windows,
+            macOS, and Linux unlock then.
+          </p>
+          <div className="mt-8">
+            <ReleaseCountdown variant="panel" />
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/download"
+              className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            >
+              Get ready to download
+            </Link>
+            <Link
+              href="/features"
+              className="rounded-full border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-white"
+            >
+              Explore features
+            </Link>
           </div>
         </div>
       </section>

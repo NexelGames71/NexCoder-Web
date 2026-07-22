@@ -4,6 +4,10 @@ export const BRAND = {
     "A production-grade agentic coding IDE for the Nexa ecosystem. One engine powers every AI surface - the chat panel, six policy modes, and the terminal CLI.",
 };
 
+/** Public launch date. Single source for every countdown on the site. */
+export const RELEASE_DATE_ISO = "2026-07-27T13:00:00.000Z";
+export const RELEASE_DATE_LABEL = "July 27, 2026";
+
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
   { label: "CLI", href: "/cli" },
