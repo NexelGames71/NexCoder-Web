@@ -10,6 +10,7 @@ export const RELEASE_DATE_LABEL = "July 27, 2026";
 
 export const NAV_LINKS = [
   { label: "Features", href: "/features" },
+  { label: "Docs", href: "/docs" },
   { label: "CLI", href: "/cli" },
   { label: "Download", href: "/download" },
 ];
@@ -19,6 +20,7 @@ export const FOOTER_GROUPS = [
     title: "Product",
     links: [
       { label: "Features", href: "/features" },
+      { label: "Documentation", href: "/docs" },
       { label: "CLI agent", href: "/cli" },
       { label: "Download", href: "/download" },
     ],
