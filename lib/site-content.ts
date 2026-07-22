@@ -163,6 +163,7 @@ export const TEAM_PRICING_PLANS = [
   {
     name: "Business Plus",
     price: "$120",
+    annualPrice: "$96",
     period: "per user / month",
     description:
       "Everything on Individual, plus 5x Standard limits and advanced team usage capacity.",
