@@ -24,7 +24,7 @@ function billedNote(plan: { annualPrice?: string }, billing: BillingPeriod) {
 }
 
 function planHref(href: string, billing: BillingPeriod) {
-  if (!href.startsWith("/signup")) return href;
+  if (!href.startsWith("/signup") && !href.startsWith("/api/checkout/polar")) return href;
   const separator = href.includes("?") ? "&" : "?";
   return `${href}${separator}billing=${billing}`;
 }

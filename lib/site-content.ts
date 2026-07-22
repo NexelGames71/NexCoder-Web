@@ -77,7 +77,7 @@ export const PRICING_PLANS = [
       "For solo developers who want more daily capacity plus a weekly usage bank.",
     usage: "150 daily units + 1,000 weekly units",
     cta: "Choose Plus",
-    href: "/signup?plan=plus",
+    href: "/api/checkout/polar?plan=plus",
     featured: true,
     benefits: [
       "Everything in Starter, plus:",
@@ -101,7 +101,7 @@ export const PRICING_PLANS = [
       "For developers using NexCoder as a daily agentic coding workspace across larger projects.",
     usage: "500 daily units + 3,500 weekly units",
     cta: "Choose Pro",
-    href: "/signup?plan=pro",
+    href: "/api/checkout/polar?plan=pro",
     featured: false,
     benefits: [
       "Everything in Plus, plus:",
@@ -124,7 +124,7 @@ export const PRICING_PLANS = [
       "For heavy Agent Mesh, long-context coding sessions, and early access to stronger hosted models.",
     usage: "1,500 daily units + 10,000 weekly units",
     cta: "Choose Premium",
-    href: "/signup?plan=premium",
+    href: "/api/checkout/polar?plan=premium",
     featured: false,
     benefits: [
       "Everything in Pro, plus:",
@@ -158,7 +158,7 @@ export const TEAM_PRICING_PLANS = [
       "Usage analytics to understand team behavior",
       "Team-wide privacy mode",
     ],
-    href: "/signup?plan=business-standard",
+    href: "/api/checkout/polar?plan=business-standard",
   },
   {
     name: "Business Plus",
@@ -178,7 +178,7 @@ export const TEAM_PRICING_PLANS = [
       "Usage analytics to understand team behavior",
       "Team-wide privacy mode",
     ],
-    href: "/signup?plan=business-plus",
+    href: "/api/checkout/polar?plan=business-plus",
   },
   {
     name: "Enterprise",

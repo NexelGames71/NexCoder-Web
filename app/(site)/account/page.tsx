@@ -29,7 +29,7 @@ export default async function AccountPage() {
   if (error) profileMissing = true;
   else profile = data;
 
-  const plan = profile?.plan ?? "free";
+  const plan = profile?.plan ?? "starter";
   const usage = profile?.usage_count ?? 0;
 
   return (
