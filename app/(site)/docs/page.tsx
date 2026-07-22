@@ -3,8 +3,6 @@ import Link from "next/link";
 
 import { getMarkdownDocuments, type MarkdownBlock } from "../../../lib/markdown-docs";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "Documentation",
   description:
@@ -95,34 +93,102 @@ export default function DocsPage() {
       documentTitle: document.title,
     })),
   );
+  const featuredSections = sections.slice(0, 4);
 
   return (
     <>
-      <section className="border-b border-line bg-panel px-5 py-16">
+      <section className="overflow-hidden border-b border-line bg-[#050505] px-5 py-14 text-white md:py-20">
         <div className="mx-auto max-w-6xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-cyan">
-            Documentation
-          </p>
-          <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center">
             <div>
-              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-ink md:text-6xl">
+              <p className="inline-flex rounded-full border border-accent-cyan/40 bg-accent-blue/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent-cyan">
+                Documentation
+              </p>
+              <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl">
                 {primary?.title || "NexCoder Documentation"}
               </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-white/70">
                 {primary?.description ||
                   "User documentation loaded from Markdown files in the docs/documentation directory."}
               </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {sections[0] ? (
+                  <a
+                    href={`#${sections[0].id}`}
+                    className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-shell transition hover:bg-white/90"
+                  >
+                    Start reading
+                  </a>
+                ) : null}
+                <Link
+                  href="/download"
+                  className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+                >
+                  Get NexCoder
+                </Link>
+              </div>
             </div>
-            <div className="rounded-3xl border border-line bg-shell p-5 shadow-soft">
-              <p className="text-sm font-semibold text-ink">Markdown-backed docs</p>
-              <p className="mt-3 text-sm leading-6 text-muted">
-                This page loads documentation from <code className="rounded bg-panel px-1.5 py-0.5 text-xs text-ink">docs/documentation/*.md</code>.
-                Add or edit Markdown files there to update this page without changing the route code.
-              </p>
+
+            <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-5 shadow-[0_24px_90px_rgba(34,201,255,0.12)] backdrop-blur">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div>
+                  <p className="text-sm font-semibold text-white">Choose your path</p>
+                  <p className="mt-1 text-xs text-white/50">A safer flow for AI coding</p>
+                </div>
+                <span className="rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-3 py-1 text-xs font-semibold text-accent-cyan">
+                  Live workflow
+                </span>
+              </div>
+              <div className="mt-5 space-y-3">
+                {[
+                  ["01", "Read", "Learn the workspace and modes before changing code."],
+                  ["02", "Plan", "Use approval-gated plans for broad or risky changes."],
+                  ["03", "Verify", "Review diffs, run checks, and commit intentionally."],
+                ].map(([step, title, body], index) => (
+                  <div
+                    key={step}
+                    className="group flex gap-4 rounded-2xl border border-white/10 bg-[#0b0b10] p-4 transition hover:-translate-y-0.5 hover:border-accent-cyan/35 hover:bg-white/[0.06]"
+                  >
+                    <span className="relative flex h-9 w-9 flex-none items-center justify-center rounded-full border border-white/15 bg-white/[0.05] text-xs font-semibold text-white">
+                      {step}
+                      {index === 0 ? (
+                        <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-accent-cyan animate-pulse" />
+                      ) : null}
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-white">{title}</p>
+                      <p className="mt-1 text-sm leading-6 text-white/60">{body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {featuredSections.length ? (
+        <section className="border-b border-line bg-shell px-5 py-8">
+          <div className="mx-auto grid max-w-6xl gap-3 md:grid-cols-2 lg:grid-cols-4">
+            {featuredSections.map((section, index) => (
+              <a
+                key={`featured-${section.id}`}
+                href={`#${section.id}`}
+                className="group rounded-2xl border border-line bg-panel p-4 transition hover:-translate-y-1 hover:border-ink/30 hover:bg-[#181820]"
+              >
+                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-accent-violet">
+                  0{index + 1}
+                </span>
+                <p className="mt-3 text-sm font-semibold text-ink">{section.title}</p>
+                <p className="mt-2 text-xs leading-5 text-muted">
+                  Jump to this section
+                  <span className="ml-1 inline-block transition group-hover:translate-x-1">-&gt;</span>
+                </p>
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="px-5 py-12">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -136,7 +202,7 @@ export default function DocsPage() {
                   <a
                     key={`${section.documentTitle}-${section.id}`}
                     href={`#${section.id}`}
-                    className="rounded-2xl px-3 py-2 text-sm text-muted transition hover:bg-shell hover:text-ink"
+                    className="rounded-2xl border border-transparent px-3 py-2 text-sm text-muted transition hover:border-line hover:bg-shell hover:text-ink"
                   >
                     {section.title}
                   </a>
@@ -150,7 +216,7 @@ export default function DocsPage() {
               documents.map((document) => (
                 <article
                   key={document.slug}
-                  className="rounded-3xl border border-line bg-panel p-6 shadow-soft md:p-8"
+                  className="rounded-3xl border border-line bg-panel p-6 shadow-soft transition hover:border-ink/20 md:p-8"
                 >
                   <MarkdownContent blocks={document.blocks} />
                 </article>
