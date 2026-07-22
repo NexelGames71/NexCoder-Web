@@ -1,4 +1,7 @@
 # Not part of the Vercel (Next.js) build — kept in git, excluded from deploys.
 cloudflare/
-docs/
 scripts/
+
+# Keep root-level development/runbook docs out of deploys while still allowing
+# the public /docs route and Markdown files under docs/documentation/.
+/docs/*.md
