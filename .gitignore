@@ -21,6 +21,8 @@ Nexa Broswer/
 .env
 .env.local
 .env.*.local
+.env.import
+.env.*.import
 .dev.vars
 
 # typescript

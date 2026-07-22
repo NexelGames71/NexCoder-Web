@@ -16,6 +16,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
   const router = useRouter();
   const params = useSearchParams();
   const next = safeNext(params.get("next"));
+  const nextQuery = `?next=${encodeURIComponent(next)}`;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -185,14 +186,14 @@ export default function AuthForm({ mode }: { mode: Mode }) {
         {mode === "signup" ? (
           <>
             Already have an account?{" "}
-            <Link href="/login" className="font-medium text-ink underline underline-offset-4">
+            <Link href={`/login${nextQuery}`} className="font-medium text-ink underline underline-offset-4">
               Log in
             </Link>
           </>
         ) : (
           <>
             New to NexCoder?{" "}
-            <Link href="/signup" className="font-medium text-ink underline underline-offset-4">
+            <Link href={`/signup${nextQuery}`} className="font-medium text-ink underline underline-offset-4">
               Create an account
             </Link>
           </>
