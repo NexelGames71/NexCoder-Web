@@ -14,3 +14,84 @@ body {
 body {
   @apply bg-shell text-ink antialiased;
 }
+
+.docs-hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+  animation: docs-grid-drift 18s linear infinite;
+}
+
+.docs-scanline {
+  background: linear-gradient(90deg, transparent, rgba(34, 201, 255, 0.8), transparent);
+  animation: docs-scanline 3.8s ease-in-out infinite;
+}
+
+.docs-fade-up {
+  animation: docs-fade-up 0.7s ease-out both;
+}
+
+.docs-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.docs-delay-2 {
+  animation-delay: 0.16s;
+}
+
+.docs-delay-3 {
+  animation-delay: 0.24s;
+}
+
+.docs-delay-4 {
+  animation-delay: 0.32s;
+}
+
+.docs-delay-5 {
+  animation-delay: 0.4s;
+}
+
+@keyframes docs-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes docs-grid-drift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+
+  to {
+    background-position: 56px 56px, 56px 56px;
+  }
+}
+
+@keyframes docs-scanline {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: translateX(-40%);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translateX(40%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .docs-hero-grid,
+  .docs-scanline,
+  .docs-fade-up {
+    animation: none;
+  }
+}
