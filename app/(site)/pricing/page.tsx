@@ -190,16 +190,16 @@ export default function PricingPage() {
 
       <Section
         title="Teams and enterprise"
-        subtitle="Team plans add administration, shared controls, and pooled usage. Enterprise adds the security and deployment controls larger organizations expect."
+        subtitle="Business plans add administration, shared controls, pooled usage, team privacy, and BugGuard-backed review workflows."
         className="bg-shell"
       >
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-5 lg:grid-cols-3">
           {TEAM_PRICING_PLANS.map((plan) => (
             <article key={plan.name} className="pricing-rise rounded-lg border border-line bg-panel p-6 shadow-soft">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent-violet">
-                    {plan.name === "Team" ? "For teams" : "For organizations"}
+                    {plan.name === "Enterprise" ? "For organizations" : "For businesses"}
                   </p>
                   <h3 className="mt-3 text-2xl font-semibold text-ink">{plan.name}</h3>
                 </div>
@@ -213,11 +213,19 @@ export default function PricingPage() {
               <p className="mt-4 rounded-lg border border-line bg-shell p-3 text-sm font-medium text-ink">
                 {plan.usage}
               </p>
+              <ul className="mt-5 space-y-3 text-sm text-muted">
+                {plan.benefits.map((benefit) => (
+                  <li key={benefit} className="flex gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent-violet" aria-hidden />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
               <Link
                 href={plan.href}
                 className="mt-6 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-semibold text-shell transition hover:-translate-y-0.5 hover:opacity-90"
               >
-                {plan.name === "Enterprise" ? "Contact sales" : "Start team plan"}
+                {plan.name === "Enterprise" ? "Contact sales" : "Start business plan"}
               </Link>
             </article>
           ))}
@@ -285,7 +293,7 @@ export default function PricingPage() {
         className="bg-shell"
       >
         <div className="overflow-x-auto rounded-lg border border-line bg-panel shadow-soft">
-          <table className="w-full min-w-[760px] text-left text-sm">
+          <table className="w-full min-w-[980px] text-left text-sm">
             <thead>
               <tr className="border-b border-line text-xs font-semibold uppercase tracking-[0.18em] text-muted">
                 <th className="px-5 py-4">Feature</th>
@@ -293,7 +301,8 @@ export default function PricingPage() {
                 <th className="px-5 py-4">Plus</th>
                 <th className="px-5 py-4">Pro</th>
                 <th className="px-5 py-4">Premium</th>
-                <th className="px-5 py-4">Team / Enterprise</th>
+                <th className="px-5 py-4">Business Standard</th>
+                <th className="px-5 py-4">Business Plus</th>
               </tr>
             </thead>
             <tbody>
