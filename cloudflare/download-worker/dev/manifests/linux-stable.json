@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "product": "NexCoder",
+  "channel": "stable",
+  "version": "0.0.0-dev",
+  "releaseDate": "2026-07-20T00:00:00.000Z",
+  "platform": "linux",
+  "architecture": "x64",
+  "minimumOperatingSystem": "Ubuntu 20.04+",
+  "filename": "NexCoder-0.0.0-dev.AppImage",
+  "objectKey": "releases/linux/stable/0.0.0-dev/NexCoder-0.0.0-dev.AppImage",
+  "contentType": "application/octet-stream",
+  "sizeBytes": 57,
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "releaseNotesUrl": "https://nexcoder.trynexa-ai.com/releases/0.0.0-dev",
+  "published": true
+}

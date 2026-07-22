@@ -1,0 +1,38 @@
+{
+  // NexCoder download Worker.
+  // Docs: ../../docs/NEXCODER_DOWNLOAD_SYSTEM.md
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nexcoder-downloads",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-06-01",
+
+  // Do NOT expose a workers.dev URL. Traffic must arrive only via the
+  // nexcoder.trynexa-ai.com routes below.
+  "workers_dev": false,
+
+  // The Worker intercepts ONLY the release-related API paths. Everything else
+  // (/, /download, static assets, unrelated APIs) continues to the website
+  // origin. The nexcoder.trynexa-ai.com DNS record MUST be proxied (orange
+  // cloud) for these routes to execute.
+  "routes": [
+    { "pattern": "nexcoder.trynexa-ai.com/api/download/*", "zone_name": "trynexa-ai.com" },
+    { "pattern": "nexcoder.trynexa-ai.com/api/releases/*", "zone_name": "trynexa-ai.com" }
+  ],
+
+  // Private R2 bucket binding. No access keys required inside the Worker.
+  "r2_buckets": [
+    { "binding": "RELEASES", "bucket_name": "nexcoder-releases" }
+  ],
+
+  // Non-secret configuration. Never place API tokens or account IDs here.
+  "vars": {
+    "WINDOWS_STABLE_MANIFEST_KEY": "manifests/windows-stable.json",
+    "MACOS_STABLE_MANIFEST_KEY": "manifests/macos-stable.json",
+    "LINUX_STABLE_MANIFEST_KEY": "manifests/linux-stable.json",
+    "ENVIRONMENT": "production"
+  },
+
+  "observability": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "product": "NexCoder",
+  "channel": "stable",
+  "version": "0.0.0-dev",
+  "releaseDate": "2026-07-20T00:00:00.000Z",
+  "platform": "windows",
+  "architecture": "x64",
+  "minimumOperatingSystem": "Windows 10 64-bit",
+  "filename": "NexCoder-Setup-0.0.0-dev.exe",
+  "objectKey": "releases/windows/stable/0.0.0-dev/NexCoder-Setup-0.0.0-dev.exe",
+  "contentType": "application/octet-stream",
+  "sizeBytes": 54,
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "releaseNotesUrl": "https://nexcoder.trynexa-ai.com/releases/0.0.0-dev",
+  "published": true
+}

@@ -1,0 +1,4 @@
+# Not part of the Vercel (Next.js) build — kept in git, excluded from deploys.
+cloudflare/
+docs/
+scripts/

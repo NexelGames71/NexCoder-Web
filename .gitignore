@@ -1,0 +1,43 @@
+# dependencies
+/node_modules
+
+# local tooling / unrelated content
+.claude/
+Nexa Broswer/
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+*.log
+
+# env files
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# NexCoder application releases (never commit real installers)
+release/*.exe
+release/*.msi
+release/*.zip
+release/*.msix
+
+# Cloudflare local state
+.wrangler/
+cloudflare/download-worker/.wrangler/
+cloudflare/download-worker/dist/
+cloudflare/download-worker/node_modules/
+
+# Local generated manifests
+*.local-manifest.json

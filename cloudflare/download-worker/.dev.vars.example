@@ -1,0 +1,9 @@
+# Example local Worker vars for `wrangler dev`.
+# Copy to `.dev.vars` (which is gitignored). Do NOT put Cloudflare API tokens,
+# R2 access keys, or account IDs here — the Worker uses the R2 binding, not keys.
+
+WINDOWS_STABLE_MANIFEST_KEY = "manifests/windows-stable.json"
+MACOS_STABLE_MANIFEST_KEY = "manifests/macos-stable.json"
+LINUX_STABLE_MANIFEST_KEY = "manifests/linux-stable.json"
+ENVIRONMENT = "development"
+WORKER_VERSION = "local-dev"
