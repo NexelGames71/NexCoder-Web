@@ -1,11 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { BRAND, NAV_LINKS } from "../../lib/site-content";
+import { createClient, isSupabaseConfigured } from "../../lib/supabase/client";
 
 export default function PublicNav() {
   const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState<string | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isSupabaseConfigured()) return;
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => setEmail(data.user?.email ?? null));
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) =>
+      setEmail(session?.user?.email ?? null),
+    );
+    return () => sub.subscription.unsubscribe();
+  }, []);
+
+  async function signOut() {
+    if (isSupabaseConfigured()) await createClient().auth.signOut();
+    setEmail(null);
+    setOpen(false);
+    router.push("/");
+    router.refresh();
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-shell/90 backdrop-blur-md">
@@ -28,12 +50,32 @@ export default function PublicNav() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Link
-            href="/download"
-            className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-shell transition hover:opacity-90"
-          >
-            Get NexCoder
-          </Link>
+          {email ? (
+            <>
+              <Link href="/account" className="text-sm text-muted transition hover:text-ink">
+                Account
+              </Link>
+              <button
+                type="button"
+                onClick={signOut}
+                className="rounded-full border border-line px-4 py-2 text-sm font-medium text-ink transition hover:border-ink/30"
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="text-sm text-muted transition hover:text-ink">
+                Sign in
+              </Link>
+              <Link
+                href="/download"
+                className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-shell transition hover:opacity-90"
+              >
+                Get NexCoder
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -59,13 +101,33 @@ export default function PublicNav() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/download"
-              className="rounded-full bg-ink px-4 py-2 text-center text-sm font-medium text-shell"
-              onClick={() => setOpen(false)}
-            >
-              Get NexCoder
-            </Link>
+            {email ? (
+              <>
+                <Link href="/account" className="text-sm text-ink" onClick={() => setOpen(false)}>
+                  Account
+                </Link>
+                <button
+                  type="button"
+                  onClick={signOut}
+                  className="rounded-full border border-line px-4 py-2 text-center text-sm font-medium text-ink"
+                >
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className="text-sm text-ink" onClick={() => setOpen(false)}>
+                  Sign in
+                </Link>
+                <Link
+                  href="/download"
+                  className="rounded-full bg-ink px-4 py-2 text-center text-sm font-medium text-shell"
+                  onClick={() => setOpen(false)}
+                >
+                  Get NexCoder
+                </Link>
+              </>
+            )}
           </div>
         </div>
       ) : null}
