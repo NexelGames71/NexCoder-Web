@@ -17,6 +17,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
   const params = useSearchParams();
   const next = safeNext(params.get("next"));
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState<null | "email" | Provider>(null);
@@ -37,7 +38,10 @@ export default function AuthForm({ mode }: { mode: Mode }) {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}` },
+          options: {
+            emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+            data: { full_name: name.trim() },
+          },
         });
         if (error) throw error;
         setNotice("Check your email to confirm your account, then log in.");
@@ -113,6 +117,20 @@ export default function AuthForm({ mode }: { mode: Mode }) {
 
       {/* Email + password */}
       <form onSubmit={onEmailSubmit} className="grid gap-4">
+        {mode === "signup" && (
+          <label className="grid gap-1.5 text-sm">
+            <span className="font-medium text-ink">Name</span>
+            <input
+              type="text"
+              required
+              autoComplete="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full rounded-xl border border-line bg-shell px-4 py-3 text-sm text-ink placeholder:text-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+              placeholder="Your name"
+            />
+          </label>
+        )}
         <label className="grid gap-1.5 text-sm">
           <span className="font-medium text-ink">Email</span>
           <input
