@@ -11,29 +11,29 @@ import {
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "NexCoder pricing for local-first coding, hosted AI credits, Agent Mesh, teams, and enterprise deployments.",
+    "NexCoder pricing for daily and weekly AI coding usage, Agent Mesh, teams, and enterprise deployments.",
   alternates: { canonical: "/pricing" },
 };
 
 const usagePrinciples = [
   {
-    title: "Local stays unlimited",
-    body: "Local GGUF models and bring-your-own OpenAI-compatible endpoints do not consume NexCoder-hosted credits.",
+    title: "Starter resets daily",
+    body: "Starter includes daily usage only. That allowance resets every 24 hours.",
   },
   {
-    title: "Hosted usage is credit based",
-    body: "Ask, Agent, Edit, Debug, Plan, vision, Deep Thinker, and Agent Mesh consume credits based on hosted model usage.",
+    title: "Paid plans reset faster",
+    body: "Plus, Pro, and Premium include daily usage that refreshes every 5 hours.",
   },
   {
-    title: "Overage is opt-in",
-    body: "Paid plans can add extra usage, but surprise billing should stay off until the user or admin enables it.",
+    title: "Weekly usage lasts 7 days",
+    body: "Paid plans also include a weekly usage bank that resets every 7 days.",
   },
 ];
 
-const creditExamples = [
+const usageExamples = [
   ["Ask or Scan", "Light code questions, summaries, repository mapping", "Low"],
   ["Agent, Edit, Debug", "Multi-step changes, test runs, repair loops", "Medium"],
-  ["Deep Thinker", "Long-context reasoning and complex architecture work", "High"],
+  ["Deep Thinker", "Deeper reasoning and complex architecture work", "High"],
   ["Agent Mesh", "Coordinated explorer, implementation, test, and review units", "Variable"],
 ];
 
@@ -50,12 +50,12 @@ export default function PricingPage() {
                 Pricing
               </p>
               <h1 className="mt-6 max-w-4xl text-3xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-                Start local. Scale into hosted agent power when you need it.
+                Daily and weekly usage for serious AI coding.
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-                NexCoder is priced around the way agentic coding actually works: unlimited local
-                and BYO usage, predictable hosted AI credits, and higher limits for deeper agent
-                runs.
+                NexCoder plans are built around usage windows users can understand: Starter
+                gets a simple daily reset, while paid plans add faster daily refreshes and a
+                7-day weekly usage bank.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
@@ -76,11 +76,11 @@ export default function PricingPage() {
             <div className="pricing-rise pricing-delay-2 rounded-2xl border border-white/10 bg-white/[0.04] p-4 shadow-[0_24px_90px_rgba(34,201,255,0.12)] backdrop-blur sm:p-5">
               <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
                 <div>
-                  <p className="text-sm font-semibold text-white">Hosted usage model</p>
-                  <p className="mt-1 text-xs text-white/50">Built for predictable agent costs</p>
+                  <p className="text-sm font-semibold text-white">Usage reset model</p>
+                  <p className="mt-1 text-xs text-white/50">Daily and weekly allowances</p>
                 </div>
                 <span className="rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-3 py-1 text-xs font-semibold text-accent-cyan">
-                  Credits
+                  Resets
                 </span>
               </div>
               <div className="mt-5 space-y-3">
@@ -108,11 +108,11 @@ export default function PricingPage() {
                 Individual plans
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
-                Pick the hosted capacity that matches your workflow.
+                Pick the usage window that matches your workflow.
               </h2>
               <p className="mt-3 text-sm leading-6 text-muted md:text-base">
-                Prices are launch targets. Local and BYO model workflows remain available on
-                every plan.
+                Prices are launch targets. Starter gets daily usage only; paid plans add both
+                daily and weekly usage.
               </p>
             </div>
             <p className="rounded-full border border-line bg-panel px-4 py-2 text-sm text-muted">
@@ -149,9 +149,9 @@ export default function PricingPage() {
                 {plan.annualPrice ? (
                   <p className="mt-2 text-sm text-muted">{plan.annualPrice}/mo billed annually</p>
                 ) : (
-                  <p className="mt-2 text-sm text-muted">{plan.credits}</p>
+                  <p className="mt-2 text-sm text-muted">{plan.usage}</p>
                 )}
-                {plan.annualPrice ? <p className="mt-2 text-sm text-accent-cyan">{plan.credits}</p> : null}
+                {plan.annualPrice ? <p className="mt-2 text-sm text-accent-cyan">{plan.usage}</p> : null}
                 <p className="mt-4 min-h-[72px] text-sm leading-6 text-muted">{plan.description}</p>
                 <Link
                   href={plan.href}
@@ -211,7 +211,7 @@ export default function PricingPage() {
               </div>
               <p className="mt-5 text-sm leading-7 text-muted">{plan.description}</p>
               <p className="mt-4 rounded-lg border border-line bg-shell p-3 text-sm font-medium text-ink">
-                {plan.credits}
+                {plan.usage}
               </p>
               <Link
                 href={plan.href}
@@ -227,23 +227,23 @@ export default function PricingPage() {
       <Section
         id="usage"
         title="How usage works"
-        subtitle="Credits give NexCoder enough room to support stronger hosted models without hiding the cost of long agent sessions."
+        subtitle="NexCoder uses two reset windows: daily usage for regular flow and weekly usage for heavier bursts."
       >
         <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div className="rounded-lg border border-line bg-panel p-6 shadow-soft">
-            <h3 className="text-lg font-semibold text-ink">What consumes credits?</h3>
+            <h3 className="text-lg font-semibold text-ink">What consumes usage?</h3>
             <p className="mt-3 text-sm leading-7 text-muted">
-              Hosted model calls consume credits. Local model calls and BYO endpoints do not.
-              Agent Mesh is billed from the combined hosted model usage of each work unit, so
-              large goals should show an estimate before they start.
+              Ask, Scan, Agent, Edit, Debug, Plan, vision, Deep Thinker, and Agent Mesh all
+              count against plan usage. Starter only has daily usage. Plus, Pro, Premium, and
+              team plans include daily and weekly allowances.
             </p>
             <div className="mt-6 grid gap-3">
-              {creditExamples.map(([name, body, level]) => (
+              {usageExamples.map(([name, body, level]) => (
                 <div key={name} className="rounded-lg border border-line bg-shell p-4">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <p className="font-medium text-ink">{name}</p>
                     <span className="w-fit rounded-full border border-line px-3 py-1 text-xs text-muted">
-                      {level} credit use
+                      {level} usage
                     </span>
                   </div>
                   <p className="mt-2 text-sm leading-6 text-muted">{body}</p>
@@ -257,22 +257,22 @@ export default function PricingPage() {
             <ul className="mt-4 space-y-4 text-sm leading-6 text-muted">
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent-blue" aria-hidden />
-                Show credits remaining, reset date, and estimated usage before Deep Thinker or Agent Mesh starts.
+                Show daily remaining, weekly remaining, and the next reset time in the AI panel.
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent-cyan" aria-hidden />
-                Stop Free runs at the monthly limit instead of allowing overage.
+                Starter should stop at its daily limit and reset after 24 hours.
               </li>
               <li className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent-violet" aria-hidden />
-                Let paid users and team admins set monthly spend caps before additional usage is allowed.
+                Paid plans should refresh daily usage every 5 hours and weekly usage every 7 days.
               </li>
             </ul>
             <div className="mt-6 rounded-lg border border-white/10 bg-shell/80 p-4">
               <p className="text-sm font-semibold text-ink">Launch note</p>
               <p className="mt-2 text-sm leading-6 text-muted">
-                Final public limits should be adjusted after real hosted telemetry shows median
-                and high-end token usage per mode.
+                Final public unit counts should be adjusted after real telemetry shows median
+                and high-end usage per mode.
               </p>
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function PricingPage() {
 
       <Section
         title="Compare limits"
-        subtitle="Hosted limits apply to NexCoder-hosted models. Local and BYO usage remains controlled by your own hardware or provider account."
+        subtitle="Starter has daily usage only. Paid plans include both daily and weekly usage windows."
         className="bg-shell"
       >
         <div className="overflow-x-auto rounded-lg border border-line bg-panel shadow-soft">
@@ -289,7 +289,7 @@ export default function PricingPage() {
             <thead>
               <tr className="border-b border-line text-xs font-semibold uppercase tracking-[0.18em] text-muted">
                 <th className="px-5 py-4">Feature</th>
-                <th className="px-5 py-4">Free</th>
+                <th className="px-5 py-4">Starter</th>
                 <th className="px-5 py-4">Plus</th>
                 <th className="px-5 py-4">Pro</th>
                 <th className="px-5 py-4">Premium</th>
@@ -312,9 +312,6 @@ export default function PricingPage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-xs leading-5 text-muted">
-          * 200k context depends on the selected hosted model. Some models support smaller windows.
-        </p>
       </Section>
 
       <section className="px-4 py-12 sm:px-6 md:py-16">
@@ -324,10 +321,10 @@ export default function PricingPage() {
               Ready to build
             </p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink md:text-3xl">
-              Download NexCoder and start on the Free plan.
+              Download NexCoder and start on Starter.
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
-              Upgrade only when you want more hosted model capacity, team controls, or enterprise security.
+              Upgrade when you need weekly usage, faster daily resets, team controls, or enterprise security.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -335,7 +332,7 @@ export default function PricingPage() {
               href="/download"
               className="inline-flex justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-shell transition hover:-translate-y-0.5 hover:opacity-90"
             >
-              Download free
+              Start free
             </Link>
             <Link
               href="/docs"

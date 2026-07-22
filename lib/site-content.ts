@@ -46,25 +46,25 @@ export const FOOTER_GROUPS = [
 
 export const PRICING_PLANS = [
   {
-    id: "free",
-    name: "Free",
-    eyebrow: "Start local",
+    id: "starter",
+    name: "Starter",
+    eyebrow: "Start building",
     price: "$0",
     period: "forever",
     description:
-      "For trying NexCoder, working with local models, or bringing your own OpenAI-compatible endpoint.",
-    credits: "$3 hosted AI credits / month",
-    cta: "Download free",
+      "For trying NexCoder and running light AI coding sessions without a paid plan.",
+    usage: "Daily usage only",
+    cta: "Start free",
     href: "/download",
     featured: false,
     benefits: [
       "Desktop IDE and terminal CLI",
-      "Local GGUF and BYO endpoint support",
       "Ask, Scan, Review, Agent, Edit, Debug, and Plan modes",
       "Checkpoint-backed file revert",
-      "Limited NexCoder-hosted model usage",
+      "Starter AI usage allowance",
+      "Usage meter and reset timer",
     ],
-    limits: ["32k hosted context", "12 max hosted agent turns", "3 trial Agent Mesh runs / month"],
+    limits: ["25 daily usage units", "Daily usage resets every 24 hours", "No weekly usage bank"],
   },
   {
     id: "plus",
@@ -74,19 +74,19 @@ export const PRICING_PLANS = [
     annualPrice: "$16",
     period: "per month",
     description:
-      "For solo developers who want NexCoder-hosted models without thinking about infrastructure.",
-    credits: "$20 hosted AI credits / month",
+      "For solo developers who want more daily capacity plus a weekly usage bank.",
+    usage: "150 daily units + 1,000 weekly units",
     cta: "Choose Plus",
     href: "/signup?plan=plus",
     featured: true,
     benefits: [
-      "Everything in Free",
+      "Everything in Starter",
       "All normal hosted Agent, Edit, Debug, and Plan workflows",
       "Image input for supported vision models",
       "Persistent project memory",
-      "Usage meter and credit warnings",
+      "Usage meter and reset warnings",
     ],
-    limits: ["64k hosted context", "50 max hosted agent turns", "Agent Mesh is credit-metered"],
+    limits: ["Daily usage resets every 5 hours", "Weekly usage resets every 7 days", "Agent Mesh included in usage"],
   },
   {
     id: "pro",
@@ -97,7 +97,7 @@ export const PRICING_PLANS = [
     period: "per month",
     description:
       "For developers using NexCoder as a daily agentic coding workspace across larger projects.",
-    credits: "$70 hosted AI credits / month",
+    usage: "500 daily units + 3,500 weekly units",
     cta: "Choose Pro",
     href: "/signup?plan=pro",
     featured: false,
@@ -108,7 +108,7 @@ export const PRICING_PLANS = [
       "Priority hosted queue",
       "Longer checkpoint and session retention",
     ],
-    limits: ["128k hosted context", "70 max hosted agent turns", "Higher Agent Mesh allowance"],
+    limits: ["Daily usage resets every 5 hours", "Weekly usage resets every 7 days", "Higher Agent Mesh allowance"],
   },
   {
     id: "premium",
@@ -119,7 +119,7 @@ export const PRICING_PLANS = [
     period: "per month",
     description:
       "For heavy Agent Mesh, long-context coding sessions, and early access to stronger hosted models.",
-    credits: "$200 hosted AI credits / month",
+    usage: "1,500 daily units + 10,000 weekly units",
     cta: "Choose Premium",
     href: "/signup?plan=premium",
     featured: false,
@@ -130,7 +130,7 @@ export const PRICING_PLANS = [
       "Higher concurrent cloud tasks",
       "Priority support",
     ],
-    limits: ["200k hosted context where supported", "100 max hosted agent turns", "Long-running Agent Mesh"],
+    limits: ["Daily usage resets every 5 hours", "Weekly usage resets every 7 days", "Long-running Agent Mesh"],
   },
 ];
 
@@ -141,8 +141,8 @@ export const TEAM_PRICING_PLANS = [
     annualPrice: "$32",
     period: "per user / month",
     description:
-      "Centralized billing, pooled credits, shared rules and skills, team privacy controls, and usage analytics.",
-    credits: "$70 pooled credits / user / month",
+      "Centralized billing, pooled usage, shared rules and skills, team privacy controls, and usage analytics.",
+    usage: "Team pooled daily and weekly usage",
     href: "/signup?plan=team",
   },
   {
@@ -151,18 +151,18 @@ export const TEAM_PRICING_PLANS = [
     period: "contract",
     description:
       "SAML/OIDC, SCIM, audit logs, repository and model controls, custom retention, invoice billing, and private deployment options.",
-    credits: "Contracted pooled usage",
+    usage: "Custom pooled usage",
     href: "/signup?plan=enterprise",
   },
 ];
 
 export const PRICING_FEATURE_ROWS = [
   ["Desktop IDE and CLI", "Included", "Included", "Included", "Included", "Included"],
-  ["Local and BYO models", "Included", "Included", "Included", "Included", "Included"],
-  ["Hosted AI credits", "$3", "$20", "$70", "$200", "Pooled"],
-  ["Hosted context window", "32k", "64k", "128k", "200k*", "Custom"],
-  ["Max hosted agent turns", "12", "50", "70", "100", "Custom"],
-  ["Agent Mesh", "3 trial runs", "Credit-metered", "Higher allowance", "Long-running", "Admin controlled"],
+  ["Daily usage", "25 units", "150 units", "500 units", "1,500 units", "Pooled"],
+  ["Daily reset", "Every 24 hours", "Every 5 hours", "Every 5 hours", "Every 5 hours", "Admin controlled"],
+  ["Weekly usage", "-", "1,000 units", "3,500 units", "10,000 units", "Pooled"],
+  ["Weekly reset", "-", "Every 7 days", "Every 7 days", "Every 7 days", "Admin controlled"],
+  ["Agent Mesh", "Limited", "Included in usage", "Higher allowance", "Long-running", "Admin controlled"],
   ["Vision models", "Limited", "Included", "Included", "Included", "Included"],
   ["Team administration", "-", "-", "-", "-", "Included"],
   ["SSO, SCIM, audit logs", "-", "-", "-", "-", "Enterprise"],
