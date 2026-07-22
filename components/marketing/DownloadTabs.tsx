@@ -55,7 +55,7 @@ export default function DownloadTabs() {
               tabIndex={selected ? 0 : -1}
               onClick={() => setActive(p.id)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue ${
-                selected ? "bg-ink text-white" : "text-muted hover:text-ink"
+                selected ? "bg-ink text-shell" : "text-muted hover:text-ink"
               }`}
             >
               {p.label}

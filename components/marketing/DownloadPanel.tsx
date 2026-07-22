@@ -74,7 +74,7 @@ export default function DownloadPanel({ platform }: { platform: PlatformInfo }) 
           <button
             type="button"
             onClick={retry}
-            className="mt-4 rounded-full border border-ink/20 px-5 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+            className="mt-4 rounded-full border border-ink/20 px-5 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-shell focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
           >
             Retry
           </button>
@@ -83,7 +83,7 @@ export default function DownloadPanel({ platform }: { platform: PlatformInfo }) 
         <a
           href={downloadUrl}
           download
-          className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-base font-semibold text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
+          className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-4 text-base font-semibold text-shell transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-blue"
         >
           Download NexCoder for {platform.label}
         </a>

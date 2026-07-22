@@ -8,19 +8,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#111111",
-        shell: "#f7f7f8",
-        line: "#e7e7e8",
-        panel: "#ffffff",
-        muted: "#6b6b6f",
+        // Dark theme. `ink` is the primary (light) text; solid buttons that use
+        // `bg-ink` pair it with `text-shell` for dark text on a light control.
+        ink: "#f2f3f7",
+        shell: "#0a0a0f",
+        line: "#272730",
+        panel: "#141419",
+        muted: "#9a9ba8",
         accent: {
-          blue: "#2f6bff",
-          cyan: "#1fb6ff",
-          violet: "#8b3dff",
+          blue: "#4d7cff",
+          cyan: "#22c9ff",
+          violet: "#a78bfa",
         },
       },
       boxShadow: {
-        soft: "0 8px 24px rgba(17, 17, 17, 0.04)",
+        soft: "0 8px 30px rgba(0, 0, 0, 0.5)",
       },
     },
   },

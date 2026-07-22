@@ -89,13 +89,13 @@ export default function CliPage() {
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/download"
-            className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-shell transition hover:opacity-90"
           >
             Get NexCoder
           </Link>
           <Link
             href="/features"
-            className="rounded-full border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-white"
+            className="rounded-full border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-shell"
           >
             All features
           </Link>

@@ -33,7 +33,7 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/download"
-                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:bg-white/90"
+                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-shell transition hover:bg-white/90"
               >
                 Get NexCoder
               </Link>
@@ -98,13 +98,13 @@ export default function HomePage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/download"
-              className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+              className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-shell transition hover:opacity-90"
             >
               Get ready to download
             </Link>
             <Link
               href="/features"
-              className="rounded-full border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-white"
+              className="rounded-full border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-shell"
             >
               Explore features
             </Link>
@@ -167,7 +167,7 @@ export default function HomePage() {
           {MODES.map((mode) => (
             <article
               key={mode.id}
-              className="rounded-2xl border border-line bg-gradient-to-br from-white via-shell to-panel p-5 shadow-soft"
+              className="rounded-2xl border border-line bg-gradient-to-br from-panel to-shell p-5 shadow-soft"
             >
               <p
                 className={`text-xs font-semibold uppercase tracking-[0.3em] ${
@@ -274,13 +274,13 @@ export default function HomePage() {
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/download"
-            className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-shell transition hover:opacity-90"
           >
             Get NexCoder
           </Link>
           <Link
             href="/features"
-            className="rounded-full border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-white"
+            className="rounded-full border border-ink/20 px-6 py-3 text-sm font-medium text-ink transition hover:bg-ink hover:text-shell"
           >
             All features
           </Link>

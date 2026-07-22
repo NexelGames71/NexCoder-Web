@@ -30,7 +30,7 @@ export default function PublicNav() {
         <div className="hidden items-center gap-3 md:flex">
           <Link
             href="/download"
-            className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+            className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-shell transition hover:opacity-90"
           >
             Get NexCoder
           </Link>
@@ -61,7 +61,7 @@ export default function PublicNav() {
             ))}
             <Link
               href="/download"
-              className="rounded-full bg-ink px-4 py-2 text-center text-sm font-medium text-white"
+              className="rounded-full bg-ink px-4 py-2 text-center text-sm font-medium text-shell"
               onClick={() => setOpen(false)}
             >
               Get NexCoder

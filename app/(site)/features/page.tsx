@@ -51,7 +51,7 @@ export default function FeaturesPage() {
           {MODES.map((mode) => (
             <article
               key={mode.id}
-              className="rounded-2xl border border-line bg-gradient-to-br from-white via-shell to-panel p-5 shadow-soft"
+              className="rounded-2xl border border-line bg-gradient-to-br from-panel to-shell p-5 shadow-soft"
             >
               <p
                 className={`text-xs font-semibold uppercase tracking-[0.3em] ${
@@ -92,7 +92,7 @@ export default function FeaturesPage() {
         <div className="mt-10">
           <Link
             href="/download"
-            className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+            className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-shell transition hover:opacity-90"
           >
             Get NexCoder
           </Link>

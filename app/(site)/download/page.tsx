@@ -66,7 +66,7 @@ export default function DownloadPage() {
             },
           ].map((item) => (
             <li key={item.step} className="rounded-3xl border border-line bg-panel p-6 shadow-soft">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-ink text-sm font-semibold text-white">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-ink text-sm font-semibold text-shell">
                 {item.step}
               </span>
               <h3 className="mt-4 text-lg font-semibold text-ink">{item.title}</h3>
